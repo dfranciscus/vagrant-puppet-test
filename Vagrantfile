@@ -11,9 +11,9 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--memory", "4096"]
       vb.customize ["modifyvm", :id, "--cpus", "2"]
     end
-    puppet.vm.provision "file", source: "~/GitHub/vagrant-puppet-test/site.pp", destination: "/vagrant/site.pp"
-    puppet.vm.provision "file", source: "~/GitHub/vagrant-puppet-test/puppet.conf", destination: "/vagrant/puppet.conf"
-    puppet.vm.provision "file", source: "~/GitHub/vagrant-puppet-test/init.pp", destination: "/vagrant/init.pp"
+    puppet.vm.provision "file", source: "./site.pp", destination: "/vagrant/site.pp"
+    puppet.vm.provision "file", source: "./puppet.conf", destination: "/vagrant/puppet.conf"
+    puppet.vm.provision "file", source: "./init.pp", destination: "/vagrant/init.pp"
     puppet.vm.provision "shell", inline: <<-SHELL
       sudo echo "192.168.10.22 puppetagent-1" | sudo tee -a /etc/hosts
       sudo echo "192.168.10.24 puppetagentwin" | sudo tee -a /etc/hosts
@@ -74,9 +74,9 @@ end
        Netsh advfirewall firewall set rule group='remote desktop' new enable=yes
        refreshenv
        SHELL
-      #puppetagentwin.vm.provision "shell", inline: <<-SHELL
-      # puppet agent --test --certname puppetagent-win
-      # SHELL
+       puppetagentwin.vm.provision "shell", inline: <<-SHELL
+       puppet agent --verbose --waitforcert 10 --certname puppetagent-win
+       SHELL
  
  end
 

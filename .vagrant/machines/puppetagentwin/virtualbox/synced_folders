@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/dan/GitHub/vagrant-puppet-test","disabled":false,"__vagrantfile":true}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/vagrant/vagrant-puppet-test/vagrant-puppet-test","disabled":false,"__vagrantfile":true}}}
