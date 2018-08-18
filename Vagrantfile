@@ -75,7 +75,7 @@ end
        refreshenv
        SHELL
        puppetagentwin.vm.provision "shell", inline: <<-SHELL
-       puppet agent --verbose --waitforcert 10 --certname puppetagent-win
+      # puppet agent --verbose --waitforcert 10 --certname puppetagent-win
        SHELL
  
  end
